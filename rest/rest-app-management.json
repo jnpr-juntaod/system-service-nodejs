@@ -1,0 +1,86 @@
+{
+    "uri_prefix": "data",
+    "dataSource": "MySqlDS",
+    "modules": [
+        {
+            "name": "app-management",
+            "revision": "2014-07-26",
+            "namespace": "http://juniper.net/ns/space/app-management/1.0",
+            "apis": [
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri": "apps",
+                    "params": [],
+                    "module": "appmgt.js",
+                    "method": "getApps"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps/(app[=]?[^\/]+[^\/]$)",
+                    "params": [{"name": "app", "type": "MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsApp"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces$",
+                    "params": [{"name":"app", "type": "MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspaces"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces/(workspace[=]?[^\/]+[^\/]$)",
+                    "params": [{"name":"app", "type":"MatrixParam"}, {"name":"workspace", "type":"MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspacesWorkspace"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces/(workspace[=]?[^\/]+)/tasks$",
+                    "params": [{"name":"app", "type":"MatrixParam"}, {"name":"workspace", "type":"MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspacesWorkspaceTasks"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces/(workspace[=]?[^\/]+)/tasks/(task[=]?[^\/]+[^\/]$)",
+                    "params": [{"name":"app", "type":"MatrixParam"}, {"name":"workspace", "type":"MatrixParam"}, {"name":"task", "type":"MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspacesWorkspaceTasksTask"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces/(workspace[=]?[^\/]+)/tasks/(task[=]?[^\/]+)/ctasks$",
+                    "params": [{"name":"app", "type":"MatrixParam"}, {"name":"workspace", "type":"MatrixParam"}, {"name":"task", "type":"MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspacesWorkspaceTasksTaskCtasks"
+                },
+                {
+                    "protocol": "GET",
+                    "chain": ["space_rbac"],
+                    "produces": ["application/yang.data+json"],
+                    "uri-reg": "apps\/(app[=]?[^\/]+)\/workspaces/(workspace[=]?[^\/]+)/tasks/(task[=]?[^\/]+)/ctasks/(ctask[=]?[^\/]+[^\/]$)",
+                    "params": [{"name":"app", "type":"MatrixParam"}, {"name":"workspace", "type":"MatrixParam"}, {"name":"ctask", "type":"MatrixParam"}],
+                    "module": "appmgt.js",
+                    "method": "getAppsAppWorkspacesWorkspaceTasksTaskCtasksCtask"
+                }
+            ]
+        }
+    ]
+
+}

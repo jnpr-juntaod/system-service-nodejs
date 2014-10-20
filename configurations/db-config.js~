@@ -1,0 +1,37 @@
+/** 
+ * @module db-config
+ * @copyright (C) Copyright 2014, Juniper Networks. Inc
+ * @classdesc 
+ * The global configurations of DataSources. 
+ * @version 2.0
+ */
+
+module.exports = [
+	{
+		/**
+		 * DataSource Name
+		 */
+		"name": "MySqlDS",
+		/**
+		 * if a connection is marked as readonly or the transaction type is "REQUIRED_READONLY", platform will try to get connection from
+		 * the readGroup. If readGroup is not configured, platform will use defaultGroup instead. Other operations without readonly mark will get
+		 * connections from default group.
+		 * 
+		 * The orders of datasources in the group means: The server will only get connections from the first datasource in this group until it is down.The others
+		 * are for failover only. If the first datasource is down(vip switching or other reasons), platform will use failover datasources as a temporary 
+		 * provider and try to recover the first datasource. 
+		 */
+		"defaultGroup": [
+		               {"insecureAuth":true, "user":"_DB_USR_", "password":"_DB_PWD_", "url":"_DB_IP_", "database":"_DB_NAME_"} //master db (vip) 
+		],
+		/**
+		 * Datasources in this group are just for "readonly" operations. And the connections will use load balance strategy (random access)
+		 */
+		"readGroup": [
+		]
+	}
+];
+
+
+
+

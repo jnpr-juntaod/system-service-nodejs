@@ -1,0 +1,21 @@
+{
+    "uri_prefix": "data",
+    "dataSource": "MySqlDS",
+    "modules": [
+        {
+            "name": "login-information",
+            "revision": "2014-07-26",
+            "namespace": "http://juniper.net/ns/space/login-information/1.0",
+            "apis": [
+                {
+                    "protocol": "GET",
+                    "chain": [],
+                    "uri": "home",
+                    "params": [],
+                    "module": "home.js",
+                    "method": "getHomeInfo"
+                }
+            ]
+        }
+    ]
+}

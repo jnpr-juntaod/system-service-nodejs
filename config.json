@@ -1,0 +1,9 @@
+{
+	"passport": [
+		{"name": "jmp-sso", "handler": "private/strategy/jmp-sso-strategy"},
+		{"name": "jmp-basic", "handler": "private/strategy/jmp-basic-strategy"}
+	],
+    "extensions": {
+        "request-chain": [{"priority": 10, "module": "private/extension/chain-provider"}]
+    }
+}
